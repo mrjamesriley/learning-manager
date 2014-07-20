@@ -1,0 +1,106 @@
+{{ something }}
+
+<div class="container-fluid">
+
+  <div class="row">
+
+    <div class="col-md-8">
+
+      <h3>Currently Reading</h1>
+
+      <table class="table resource-list">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="book in currentlyReading()">
+          <td>{{ book.title }} <small>{{ book.id }}</small></td>
+          <td>{{ book.author }}</td>
+          <td>
+            <button class="btn btn-success btn-xs" ng-click="complete(book)">Completed</button>
+            <button class="btn btn-primary btn-xs" ng-click="pause(book)">Pause</button>
+            <button class="btn btn-warning btn-xs" ng-click="trash(book)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div ng-show="!currentlyReading().length">You do not have any current books on the go - what are you waiting for?</div>
+
+
+      <h3>Reading Next</h1>
+
+      <table class="table resource-list">
+        <tbody>
+        <tr ng-repeat="book in readingNext()">
+          <td>{{ book.title }} <small>{{ book.id }}</small></td>
+          <td>{{ book.author }}</td>
+          <td>
+            <button class="btn btn-success btn-xs" ng-click="start(book)">Start</button>
+            <button class="btn btn-warning btn-xs" ng-click="trash(book)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div ng-show="!readingNext().length">No books in your upcoming list - add some!</div>
+
+      <h3>Have Read</h1>
+
+      <table class="table resource-list">
+        <tbody>
+        <tr ng-repeat="book in alreadyRead()">
+          <td>{{ book.title }} <small>{{ book.id }}</small></td>
+          <td>{{ book.author }}</td>
+          <td>
+            <button class="btn btn-success btn-xs" ng-click="start(book)">Start Again</button>
+            <button class="btn btn-warning btn-xs" ng-click="trash(book)">Delete</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div ng-show="!alreadyRead().length">You are yet to complete any books - get reading!</div>
+
+    </div>
+
+    <div class="col-md-4">
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <div class="panel-title">Add a new Book</div>
+        </div>
+        <div class="panel-body">
+
+          <form ng-submit="addBook()">
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input class="form-control" placeholder="Enter title" ng-model="newBook.title" />
+            </div>
+
+            <div class="form-group">
+              <label for="title">Author</label>
+              <input class="form-control" placeholder="Enter author" ng-model="newBook.author" />
+            </div>
+
+            <div class="form-group">
+              <label for="status">Starting Status</label>
+              <select class="form-control" ng-model="newBook.status">
+                <option value="1">Currently Reading</option>
+                <option value="2">Reading Next</option>
+                <option value="3">Completed Reading</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <button class="btn btn-success">Add Book</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+</div>

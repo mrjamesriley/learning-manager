@@ -1,0 +1,14 @@
+%h1 Learning Management
+
+%p A simple tool to keep track of the learning resources you are currently using, plan to use, and have used. For easy reference and to assist in keeping learning on track. Simples.
+
+%ul.nav.nav-tabs{ style: 'margin-bottom: 30px' }
+  %li.active
+    %a Books
+  %li
+    %a Videos
+  %li
+    %a Courses
+
+%div{ 'ng-app' => 'learning' }
+  %ng-view

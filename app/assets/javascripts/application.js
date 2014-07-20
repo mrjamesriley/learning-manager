@@ -10,6 +10,13 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
+//= require jquery/dist/jquery
+//= require lodash/dist/lodash
+//
+//= require angular/angular
+//= require angular-route/angular-route
+//= require restangular/dist/restangular
+//
+//= require bootstrap/dist/js/bootstrap
+//
 //= require_tree .

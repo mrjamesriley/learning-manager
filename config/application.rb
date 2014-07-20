@@ -11,6 +11,7 @@ end
 
 module LearningManager
   class Application < Rails::Application
+    require "/Users/tman/code/learning-manager/config/initializers/bower_rails.rb"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -55,6 +56,7 @@ module LearningManager
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    config.assets.paths << Rails.root.join('vendor', 'bower_components')
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

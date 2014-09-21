@@ -11,7 +11,7 @@ end
 
 module LearningManager
   class Application < Rails::Application
-    require "/Users/tman/code/learning-manager/config/initializers/bower_rails.rb"
+    require Rails.root.join("config/initializers/bower_rails.rb")
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
